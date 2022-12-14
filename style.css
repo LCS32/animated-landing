@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Red Hat Display', sans-serif;
+    background: #ede8e2;
+    display: flex;
+    height: 100vh;
+}
+
+.grid {
+    background: #262323;
+    height: 90vh;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    box-shadow: 0 0 30px -10px rgba(138, 135, 135, 0.5);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    overflow: hidden;
+}
+
+.grid::before {
+    content: '';
+    grid-column: 4/8;
+    grid-row: 1/-1;
+    background-image: url(logo.png);
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0 0 0.75rem #7160A7);
+    clip-path: polygon(0 0 , 100% 0, 100% 0, 0 0);
+    animation: show 2s 3.5s cubic-bezier(1, 0.8, .76, .94) forwards;
+    -webkit-animation: show 2s 3.5s cubic-bezier(1, 0.8, .76, .94) forwards;
+    -webkit-filter: drop-shadow(0 0 0.75rem #7160A7);
+}
+
+.grid__texts {
+    grid-row: 2/ -2;
+    grid-column: 2/8;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    animation: show 1s 2s forwards;
+    transform: translate(50%);
+    animation: show 2s forwards, move 1s 2s forwards ;
+    -webkit-animation: show 2s forwards, move 1s 2s forwards ;
+    color: #fff;
+}
+
+.grid__title {
+    font-size: 6rem;
+}
+
+.grid__title--transform {
+    text-shadow: none;
+    font-size: 4.5rem;
+    transform: translate(14%);
+    -webkit-transform: translate(14%);
+    -moz-transform: translate(14%);
+    -ms-transform: translate(14%);
+    -o-transform: translate(14%);
+    animation: move 1s 2s forwards;
+    -webkit-animation: move 1s 2s forwards;
+}
+
+@keyframes show {
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes move {
+    to {
+        transform: translate(0);
+        -webkit-transform: translate(0);
+        -moz-transform: translate(0);
+        -ms-transform: translate(0);
+        -o-transform: translate(0);
+}
+}
